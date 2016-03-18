@@ -10,23 +10,39 @@ import (
 
 var port = "43000"
 
+type Match struct {
+	Mode string 	`json: "map.mode"`
+	Name string 	`json: "map.name"`
+	Phase string 	`json: "map.phase"`
+	Round int	`json: "map.round"`
+	CT_Score int 	`json: "map.team_ct.score"`
+	T_Score int 	`json: "map.team_t.score"`
+}
+
+type Round struct  {
+	Phase string	`json: "round.phase"`
+	Bomb string	`json: "round.bomb"`
+	Winner string	`json: "round.win_team"`
+}
+
 type Gamestate struct {
-    ScoreCT int `json: "map.team_ct.score"`
-    ScoreT int `json: "map.team_t.score"`
+    	Match []Match
+	Round []Round
 }
 
 func update(rw http.ResponseWriter, req *http.Request){
-    decoder := json.NewDecoder(req.Body)
-    
     var g Gamestate
     
-    err := decoder.Decode(&g)
+    err := json.NewDecoder(req.Body).Decode(&g)
     if err != nil {
         fmt.Printf("Error: %s\n", err)
         rw.WriteHeader(http.StatusInternalServerError)
         return
     }
-    log.Printf("Score CT: %v - Score T: %v", g.ScoreCT, g.ScoreT)
+
+    log.Printf("Mapname: %s\n", )
+    log.Printf("Round phase: %s\n", g.RoundPhase)
+    log.Printf("Bomb planted: %s\n", g.BombPlanted)
 }
 
 func main() {
