@@ -10,28 +10,34 @@ import (
 
 var port = "43000"
 
-type Match struct {
-	Mode string 	`json: "map.mode"`
-	Name string 	`json: "map.name"`
-	Phase string 	`json: "map.phase"`
-	Round int	`json: "map.round"`
-	CT_Score int 	`json: "map.team_ct.score"`
-	T_Score int 	`json: "map.team_t.score"`
-}
+type GameUpdates struct{
+	Provider struct{
+		AppId int `json: "appid"`
+		AppVersion int `json: "version"`
+		Timestamp int `json: "timestamp"`
+		 } `json: "provider"`
+	Map struct{
+		Mode string `json: "mode"`
+		Name string `json: "name"`
+		Phase string `json: "phase"`
+		RoundNr int `json: "round"`
+		TeamCT struct{
+			Score int `json: "score"`
+		       } `json: "team_ct"`
+		TeamT struct{
+			Score int `json: "score"`
+		      } `json: "team_t"`
+	    } `json: "map"`
+	Round struct{
+		Phase string `json: "phase"`
+		Bomb string `json: "bomb"`
+		RoundWinner string `json: "win_team"`
+	      } `json: "round"`
 
-type Round struct  {
-	Phase string	`json: "round.phase"`
-	Bomb string	`json: "round.bomb"`
-	Winner string	`json: "round.win_team"`
-}
-
-type Gamestate struct {
-    	Match []Match
-	Round []Round
 }
 
 func update(rw http.ResponseWriter, req *http.Request){
-    var g Gamestate
+    var g GameUpdates
     
     err := json.NewDecoder(req.Body).Decode(&g)
     if err != nil {
@@ -40,9 +46,7 @@ func update(rw http.ResponseWriter, req *http.Request){
         return
     }
 
-    log.Printf("Mapname: %s\n", )
-    log.Printf("Round phase: %s\n", g.RoundPhase)
-    log.Printf("Bomb planted: %s\n", g.BombPlanted)
+    log.Printf("Game Updates: %s\n", g)
 }
 
 func main() {
