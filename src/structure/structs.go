@@ -12,10 +12,10 @@ type GameUpdates struct {
 			 Phase   string `json: "phase"`
 			 RoundNr int    `json: "round"`
 			 TeamCT  struct {
-					 Score string `json: "score"`
+					 Score int `json: "score"`
 				 }`json: "team_ct"`
 			 TeamT   struct {
-					 Score string `json: "score"`
+					 Score int `json: "score"`
 				 }`json: "team_t"`
 		 } `json: "map"`
 	Round    struct {

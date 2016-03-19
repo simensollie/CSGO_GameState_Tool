@@ -5,12 +5,10 @@ import (
 	"net/http"
 	"log"
 	"encoding/json"
-	"structure"
+	"github.com/simensollie/CSGO_GameState_Tool/structure"
 )
 
 var port = "43000"
-
-
 
 func update(rw http.ResponseWriter, req *http.Request) {
 	var g structure.GameUpdates
