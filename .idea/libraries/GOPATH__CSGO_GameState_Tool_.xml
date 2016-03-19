@@ -5,11 +5,8 @@
     </CLASSES>
     <SOURCES />
     <excluded>
-      <root url="file://$PROJECT_DIR$/../../gorilla/context/.git" />
       <root url="file://$PROJECT_DIR$" />
-      <root url="file://$PROJECT_DIR$/../../gorilla/mux/.git" />
       <root url="file://$PROJECT_DIR$/.git" />
-      <root url="file://$PROJECT_DIR$/../csgo-gsi-qsguide/.git" />
       <root url="file://$PROJECT_DIR$/.idea" />
       <root url="file://$PROJECT_DIR$/../simensollie.github.io/.git" />
     </excluded>
