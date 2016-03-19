@@ -1,14 +1,4 @@
-package main
-
-import (
-	"fmt"
-	"net/http"
-	"log"
-	"encoding/json"
-	//"io/ioutil"
-)
-
-var port = "43000"
+package structure
 
 type GameUpdates struct {
 	Provider struct {
@@ -22,10 +12,10 @@ type GameUpdates struct {
 			 Phase   string `json: "phase"`
 			 RoundNr int    `json: "round"`
 			 TeamCT  struct {
-					 Score int `json: "score"`
+					 Score string `json: "score"`
 				 }`json: "team_ct"`
 			 TeamT   struct {
-					 Score int `json: "score"`
+					 Score string `json: "score"`
 				 }`json: "team_t"`
 		 } `json: "map"`
 	Round    struct {
@@ -104,30 +94,11 @@ type GameUpdates struct {
 						      }`json: "weapon_6"`
 				     }`json: "weapons"`
 			 Match_stats struct {
-					     Kills   int        `json: "kills"`
-					     Assists int        `json: "assists"`
-					     Deaths  int        `json: "deaths"`
-					     MVPs    int        `json: "mvps"`
-					     Score   int        `json: "score"`
+					     Kills   int `json: "kills"`
+					     Assists int `json: "assists"`
+					     Deaths  int `json: "deaths"`
+					     MVPs    int `json: "mvps"`
+					     Score   int `json: "score"`
 				     }`json: "match_stats"`
 		 }`json: "player"`
-}
-
-func update(rw http.ResponseWriter, req *http.Request) {
-	var g GameUpdates
-
-	err := json.NewDecoder(req.Body).Decode(&g)
-	if err != nil {
-		fmt.Printf("Error: %s\n", err)
-		rw.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	log.Printf("Game Updates: %s\n", g)
-}
-
-func main() {
-	fmt.Println("Server starting")
-	http.HandleFunc("/", update)
-	log.Fatal(http.ListenAndServe(":" + port, nil))
 }
