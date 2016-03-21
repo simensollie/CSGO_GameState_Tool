@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"log"
 	"encoding/json"
-	"github.com/simensollie/CSGO_GameState_Tool/structure"
+	"structure"
 )
 
 var port = "43000"
@@ -20,8 +20,9 @@ func update(rw http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	log.Printf("Bomb: %s\n", g.Round.Bomb)
-	log.Printf("CT Score: %s - T Score: %s\n", g.Map.TeamCT.Score, g.Map.TeamT.Score)
+	//log.Printf("Bomb: %s\n", g.Round.Bomb)
+	//log.Printf("CT Score: %v - T Score: %v\n", g.Map.TeamCT, g.Map.TeamT)
+	log.Printf("Phase: %v \nBomb: %v \nWinner: %v", g.Round.Phase, g.Round.Bomb, g.Round.RoundWinner)
 }
 
 func main() {

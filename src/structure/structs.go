@@ -2,8 +2,10 @@ package structure
 
 type GameUpdates struct {
 	Provider struct {
+			 Name       string `json: "name"`
 			 AppId      int `json: "appid"`
 			 AppVersion int `json: "version"`
+			 SteamID    string `json: "steamid"`
 			 Timestamp  int `json: "timestamp"`
 		 }`json: "provider"`
 	Map      struct {
@@ -17,7 +19,7 @@ type GameUpdates struct {
 			 TeamT   struct {
 					 Score int `json: "score"`
 				 }`json: "team_t"`
-		 } `json: "map"`
+		 }`json: "map"`
 	Round    struct {
 			 Phase       string `json: "phase"`
 			 Bomb        string `json: "bomb"`
@@ -45,45 +47,45 @@ type GameUpdates struct {
 							      Name        string `json: "name"`
 							      Paintkit    string `json: "paintkit"`
 							      Type        string `json: "type"`
-							      AmmoClip    int 	 `json: "ammo_clip"`
-							      AmmoClipMax int 	 `json: "ammo_clip_max"`
-							      AmmoReserve int 	 `json: "ammo_reserve"`
+							      AmmoClip    int         `json: "ammo_clip"`
+							      AmmoClipMax int         `json: "ammo_clip_max"`
+							      AmmoReserve int         `json: "ammo_reserve"`
 							      State       string `json: "state"`
 						      }`json: "weapon_1"`
 					     Weapon_2 struct {
 							      Name        string `json: "name"`
 							      Paintkit    string `json: "paintkit"`
 							      Type        string `json: "type"`
-							      AmmoClip    int 	 `json: "ammo_clip"`
-							      AmmoClipMax int 	 `json: "ammo_clip_max"`
-							      AmmoReserve int 	 `json: "ammo_reserve"`
+							      AmmoClip    int         `json: "ammo_clip"`
+							      AmmoClipMax int         `json: "ammo_clip_max"`
+							      AmmoReserve int         `json: "ammo_reserve"`
 							      State       string `json: "state"`
 						      }`json: "weapon_2"`
 					     Weapon_3 struct {
 							      Name        string `json: "name"`
 							      Paintkit    string `json: "paintkit"`
 							      Type        string `json: "type"`
-							      AmmoClip    int 	 `json: "ammo_clip"`
-							      AmmoClipMax int 	 `json: "ammo_clip_max"`
-							      AmmoReserve int 	 `json: "ammo_reserve"`
+							      AmmoClip    int         `json: "ammo_clip"`
+							      AmmoClipMax int         `json: "ammo_clip_max"`
+							      AmmoReserve int         `json: "ammo_reserve"`
 							      State       string `json: "state"`
 						      }`json: "weapon_3"`
 					     Weapon_4 struct {
 							      Name        string `json: "name"`
 							      Paintkit    string `json: "paintkit"`
 							      Type        string `json: "type"`
-							      AmmoClip    int 	 `json: "ammo_clip"`
-							      AmmoClipMax int 	 `json: "ammo_clip_max"`
-							      AmmoReserve int 	 `json: "ammo_reserve"`
+							      AmmoClip    int         `json: "ammo_clip"`
+							      AmmoClipMax int         `json: "ammo_clip_max"`
+							      AmmoReserve int         `json: "ammo_reserve"`
 							      State       string `json: "state"`
 						      }`json: "weapon_4"`
 					     Weapon_5 struct {
 							      Name        string `json: "name"`
 							      Paintkit    string `json: "paintkit"`
 							      Type        string `json: "type"`
-							      AmmoClip    int 	 `json: "ammo_clip"`
-							      AmmoClipMax int 	 `json: "ammo_clip_max"`
-							      AmmoReserve int 	 `json: "ammo_reserve"`
+							      AmmoClip    int         `json: "ammo_clip"`
+							      AmmoClipMax int         `json: "ammo_clip_max"`
+							      AmmoReserve int         `json: "ammo_reserve"`
 							      State       string `json: "state"`
 						      }`json: "weapon_5"`
 					     Weapon_6 struct {
