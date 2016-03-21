@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"log"
 	"encoding/json"
+	"github.com/gorilla/mux"
 	"structure"
 )
 
@@ -27,6 +28,13 @@ func update(rw http.ResponseWriter, req *http.Request) {
 
 func main() {
 	fmt.Println("Server starting")
-	http.HandleFunc("/", update)
+	//http.HandleFunc("/", update)
+	//http.Handle("/", http.FileServer(http.Dir("./public")))
+
+	r := mux.NewRouter()
+	r.HandleFunc("/", update)
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
+
+	http.Handle("/", r)
 	log.Fatal(http.ListenAndServe(":" + port, nil))
 }
