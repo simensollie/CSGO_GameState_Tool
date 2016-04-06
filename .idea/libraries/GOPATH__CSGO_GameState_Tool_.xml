@@ -5,6 +5,8 @@
     </CLASSES>
     <SOURCES />
     <excluded>
+      <root url="file://$PROJECT_DIR$/../glare/.idea" />
+      <root url="file://$PROJECT_DIR$/../glare/.git" />
       <root url="file://$PROJECT_DIR$/../../gorilla/context/.git" />
       <root url="file://$PROJECT_DIR$" />
       <root url="file://$PROJECT_DIR$/.git" />
